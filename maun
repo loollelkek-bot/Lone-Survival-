@@ -1,81 +1,6 @@
 local player = game.Players.LocalPlayer
 local UserInputService = game:GetService("UserInputService")
 
--- ✅ Whitelisted User IDs
-local whitelistedUsers = {
-	[3592721470] = true, -- m1sonchik
-	[8050472142] = true, -- Floppa
-	[1645173151] = true, -- MT
-	[9180065515] = true, -- Mobila
-	[9222151188] = true, -- Vorobei
-	[3064992649] = true, -- Me
-	[9220503956] = true, -- Black
-	[9433403776] = true, -- 555
-	[8671010150] = true, -- илья
-}
-
--- ❌ Not Whitelisted GUI
-if not whitelistedUsers[player.UserId] then
-	UserInputService.InputBegan:Connect(function(input)
-		return Enum.ContextActionResult.Sink
-	end)
-
-	local screenGui = Instance.new("ScreenGui")
-	screenGui.IgnoreGuiInset = true
-	screenGui.ResetOnSpawn = false
-	screenGui.Name = "WhitelistBlocker"
-	screenGui.Parent = player:WaitForChild("PlayerGui")
-
-	local bg = Instance.new("Frame")
-	bg.Size = UDim2.new(1, 0, 1, 0)
-	bg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-	bg.BorderSizePixel = 0
-	bg.Parent = screenGui
-
-	local title = Instance.new("TextLabel")
-	title.Size = UDim2.new(1, 0, 0, 60)
-	title.Position = UDim2.new(0, 0, 0.15, 0)
-	title.BackgroundTransparency = 1
-	title.Text = "Not Whitelisted | Вход Запрещён"
-	title.TextColor3 = Color3.fromRGB(255, 0, 0)
-	title.TextScaled = true
-	title.Font = Enum.Font.SourceSansBold
-	title.Parent = bg
-
-	local loreFrame = Instance.new("Frame")
-	loreFrame.Size = UDim2.new(1, -40, 0.6, 0)
-	loreFrame.Position = UDim2.new(0, 20, 0.25, 0)
-	loreFrame.BackgroundTransparency = 1
-	loreFrame.Parent = bg
-
-	local layout = Instance.new("UIListLayout")
-	layout.Parent = loreFrame
-	layout.SortOrder = Enum.SortOrder.LayoutOrder
-	layout.Padding = UDim.new(0, 10)
-
-	local function addLore(text)
-		local lbl = Instance.new("TextLabel")
-		lbl.Size = UDim2.new(1, 0, 0, 40)
-		lbl.BackgroundTransparency = 1
-		lbl.TextWrapped = true
-		lbl.Text = text
-		lbl.TextColor3 = Color3.fromRGB(200, 200, 200)
-		lbl.TextScaled = true
-		lbl.Font = Enum.Font.SourceSansItalic
-		lbl.Parent = loreFrame
-	end
-
-	addLore("hi.")
-	addLore("If you think this is a mistake, open a ticket and we will remove your IP from our data and give you access.")
-	addLore("Вам не разрешили доступ.")
-	addLore("qq")
-	addLore("Если вы думаете что это ошибка, откройте тикет и дадим вам доступ.")
-	addLore("С любовью, создатель лоуна. | With Love, Founder of Lone Survival")
-
-	return
-end
-
--- ================== ✅ WHITELIST PASSED ==================
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "BlackLonerMenu"
 screenGui.ResetOnSpawn = false
@@ -177,14 +102,14 @@ task.spawn(function()
 end)
 
 -- 🧱 Buttons
-createRemoteButton("ESP", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/ESP")
-createRemoteButton("NightVision", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/NightVision")
-createRemoteButton("Zoom", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/Zoom")
-createRemoteButton("AimBot: X", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/AIMBOT1")
-createRemoteButton("Multi HitBox", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/XBOXHITBOX")
-createRemoteButton("AI: ESP", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/AI-ESP")
-createRemoteButton("AI: HITBOX", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/AI-HBHITBOTX")
-createRemoteButton("Speedhack", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival/refs/heads/main/Speedhk")
+createRemoteButton("ESP", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/ESP")
+createRemoteButton("NightVision", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/NightVision")
+createRemoteButton("Zoom", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/Zoom")
+createRemoteButton("AimBot: X", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/AIMBOT1")
+createRemoteButton("Multi HitBox", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/XBOXHITBOX")
+createRemoteButton("AI: ESP", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/AI-ESP")
+createRemoteButton("AI: HITBOX", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/AI-HBHITBOTX")
+createRemoteButton("Speedhack", "https://raw.githubusercontent.com/unitnova389-lang/Lone-Survival-/refs/heads/main/Speedhk")
 
 -- 🎛 Menu toggle (F5)
 local menuVisible = true
